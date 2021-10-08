@@ -18,16 +18,20 @@
     <div class="footer-right">
       <p class="mb-0">
         {% capture _platform %}
-          <a href="https://jekyllrb.com/" target="_blank" rel="noopener"><i class="fas fa-vial"></i></a>
+          <span data-toggle="tooltip" data-placement="top" title="Powered By Jekyll"><a href="https://jekyllrb.com/" target="_blank" rel="noopener"><i class="fas fa-vial"></i></a></span>
         {% endcapture %}
 
         {% capture _theme %}
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener"><i class="fab fa-earlybirds"></i></a>
+          <span data-toggle="tooltip" data-placement="top" title="Base Theme By Chirpy"><a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener"><i class="fab fa-earlybirds"></i></a></span>
+        {% endcapture %}
+
+        {% capture _host %}
+          <span data-toggle="tooltip" data-placement="top" title="Proudly Hosted By Github"><a href="https://github.com/regendigi/regendigi.github.io" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></span>
         {% endcapture %}
 
         {{ site.data.locales[lang].meta
           | default: 'Powered by :PLATFORM with :THEME theme.'
-          | replace: ':PLATFORM', _platform | replace: ':THEME', _theme
+          | replace: ':PLATFORM', _platform | replace: ':THEME', _theme | replace: ':HOST', _host
         }}
 
       </p>
